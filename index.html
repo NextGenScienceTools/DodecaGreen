@@ -1,0 +1,443 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Green Chemistry Assessment</title>
+  <script src="https://cdn.plot.ly/plotly-latest.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/jspdf/2.5.1/jspdf.umd.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/html2canvas@1.4.1/dist/html2canvas.min.js"></script>
+  <style>
+    :root {
+      --primary: #388e3c;
+      --primary-dark: #2e7d32;
+      --primary-light: #a5d6a7;
+      --surface: #ffffff;
+      --background: #f4f6f8;
+      --text: #212121;
+      --radius: 12px;
+      --shadow: 0 2px 8px rgba(0,0,0,0.1);
+      --track-color: #999;
+    }
+
+    body {
+      font-family: 'Segoe UI', Roboto, sans-serif;
+      margin: 0;
+      padding: 24px;
+      background-color: var(--background);
+      color: var(--text);
+    }
+
+    h2, h3 {
+      color: var(--primary-dark);
+    }
+
+    #main-container {
+  width: 100%;
+  max-width: 1300px;
+  margin: 0 auto;
+      display: flex;
+      flex-wrap: wrap;
+      gap: 24px;
+      align-items: flex-start;
+      justify-content: center;
+    }
+
+    .card {
+      width: 640px;
+      background-color: var(--surface);
+      padding: 20px;
+      border-radius: var(--radius);
+      box-shadow: var(--shadow);
+      box-sizing: border-box;
+    }
+
+    .slider-container {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      margin-bottom: 10px;
+    }
+
+    .slider-label {
+      flex: 1;
+      font-size: 15px;
+      word-break: break-word;
+      white-space: normal;
+    }
+
+    .slider-label a {
+      color: var(--primary-dark);
+      text-decoration: none;
+    }
+
+    .slider-label a:hover {
+      text-decoration: underline;
+    }
+
+    .slider {
+      flex: 2;
+      margin: 0 12px;
+      height: 4px;
+      background-color: var(--track-color);
+      border-radius: 5px;
+      appearance: none;
+      outline: none;
+    }
+
+    .slider::-webkit-slider-thumb {
+      appearance: none;
+      width: 18px;
+      height: 18px;
+      background-color: var(--thumb-color, #2e7d32);
+      border: 2px solid #666;
+      border-radius: 50%;
+      cursor: pointer;
+      box-shadow: 0 1px 4px rgba(0,0,0,0.3);
+    }
+
+    .slider::-moz-range-thumb {
+      width: 18px;
+      height: 18px;
+      background-color: var(--thumb-color, #2e7d32);
+      border: 2px solid #666;
+      border-radius: 50%;
+      cursor: pointer;
+      box-shadow: 0 1px 4px rgba(0,0,0,0.3);
+    }
+
+    .slider-value {
+      width: 30px;
+      text-align: center;
+      font-weight: bold;
+    }
+
+    #export-buttons {
+      text-align: center;
+      margin: 20px 0;
+    }
+
+    button {
+      margin: 6px;
+      padding: 10px 20px;
+      background-color: var(--primary);
+      color: white;
+      border: none;
+      border-radius: var(--radius);
+      cursor: pointer;
+      font-size: 14px;
+      transition: background 0.3s ease;
+      box-shadow: var(--shadow);
+    }
+
+    button:hover {
+      background-color: var(--primary-dark);
+    }
+
+    #rubric {
+      margin-top: 30px;
+      background: var(--surface);
+      padding: 20px;
+      border-radius: var(--radius);
+      box-shadow: var(--shadow);
+    }
+
+    table {
+      width: 100%;
+      border-collapse: collapse;
+      font-size: 13px;
+    }
+
+    th, td {
+      border: 1px solid #ccc;
+      padding: 10px;
+      text-align: center;
+    }
+
+    th {
+      background-color: var(--primary-light);
+      color: var(--text);
+    }
+
+    tr:nth-child(even) {
+      background-color: #f9f9f9;
+    }
+
+    tr:hover {
+      background-color: #eef5ee;
+    }
+  </style>
+</head>
+<body>
+
+<h2>Green Chemistry Assessment Tool</h2>
+<div id="main-container">
+
+  
+
+  <div id="intro" class="card" style="width: 100%;">
+    <h2>EcoRadar</h2>
+    <h4>A Visual Scoring Tool for the 12 Principles of Green Chemistry</h4>
+    <p><strong>Developer:</strong> Benji Fenech-Salerno (all rights reserved)</p>
+    <p>This interactive toolkit helps you evaluate chemical processes against the 12 Principles of Green Chemistry. You’ll use intuitive sliders and a real-time radar chart to visually assess your process. The tool provides immediate feedback and offers export options for documentation and reporting.</p>
+  </div>
+
+  <div id="sliders" class="card" style="flex: 1 1 49%; min-width: 300px;">
+  <h3 style="text-align:center;">Score and Visualise Your Green Chemistry Process</h3></div>
+  <div id="chartDiv" class="card" style="flex: 1 1 49%; min-width: 300px;"></div>
+</div>
+
+<div id="export-buttons">
+  <button onclick="downloadSVG()">Download SVG</button>
+  <button onclick="downloadPDF()">Download PDF</button>
+</div>
+
+<div id="rubric" class="card" style="width: 100%; max-width: 1300px; margin: 0 auto;">
+  <h3>Green Chemistry Assessment Rubric</h3>
+  <table>
+    <tr><th>Principle</th><th>0 (Non-compliant)</th><th>1 (Poor)</th><th>2 (Moderate)</th><th>3 (Good)</th><th>4 (Excellent)</th></tr>
+    <tr><td>1. Prevention</td><td>No effort to reduce waste</td><td>Minimal</td><td>Moderate effort</td><td>Most waste minimized</td><td>No waste generated</td></tr>
+    <tr><td>2. Atom Economy</td><td>&lt;30% AE</td><td>30–50%</td><td>51–70%</td><td>71–90%</td><td>&gt;90%</td></tr>
+    <tr><td>3. Less Hazardous Syntheses</td><td>Highly toxic reagents</td><td>Toxic reagents</td><td>Safer with trade-offs</td><td>Generally safe</td><td>Benign reagents</td></tr>
+    <tr><td>4. Designing Safer Chemicals</td><td>Known toxic product</td><td>Minor toxicity</td><td>Some safety</td><td>Low toxicity</td><td>Non-toxic</td></tr>
+    <tr><td>5. Safer Solvents & Auxiliaries</td><td>Halogenated/unsafe</td><td>Harmful solvent</td><td>Safer alternative</td><td>Mostly safe</td><td>No solvents</td></tr>
+    <tr><td>6. Energy Efficiency</td><td>&gt;100 °C / cryo required</td><td>High energy</td><td>Moderate energy</td><td>Low energy</td><td>Ambient</td></tr>
+    <tr><td>7. Renewable Feedstocks</td><td>Fossil-based</td><td>Mostly fossil</td><td>Mixed sources</td><td>Mostly renewable</td><td>100% renewable</td></tr>
+    <tr><td>8. Reduce Derivatives</td><td>Multiple protection steps</td><td>Several</td><td>Some</td><td>Few</td><td>None</td></tr>
+    <tr><td>9. Catalysis</td><td>No catalyst</td><td>Stoichiometric</td><td>Basic catalyst</td><td>Efficient</td><td>Selective/biocatalyst</td></tr>
+    <tr><td>10. Design for Degradation</td><td>Persistent compounds</td><td>Limited degradation</td><td>Moderate</td><td>Mostly degradable</td><td>Readily biodegradable</td></tr>
+    <tr><td>11. Real-time Analysis</td><td>No monitoring</td><td>Limited</td><td>Occasional</td><td>Frequent</td><td>Continuous/in-line</td></tr>
+    <tr><td>12. Inherently Safer Chemistry</td><td>Explosive, volatile</td><td>Hazardous</td><td>Reduced hazards</td><td>Low-risk</td><td>Intrinsically safe</td></tr>
+  </table>
+</div>
+
+<script>
+
+function wrapLabel(text, maxLen = 18) {
+  const words = text.split(" ");
+  let lines = [], current = "";
+
+  for (const word of words) {
+    if ((current + word).length > maxLen) {
+      lines.push(current.trim());
+      current = word + " ";
+    } else {
+      current += word + " ";
+    }
+  }
+
+  if (current) lines.push(current.trim());
+  return lines.join("<br>");
+}
+
+const principles = [
+  "Prevention", "Atom Economy", "Less Hazardous Chemical Syntheses",
+  "Designing Safer Chemicals", "Safer Solvents and Auxiliaries",
+  "Energy Efficiency", "Use of Renewable Feedstocks", "Reduce Derivatives",
+  "Use of Catalysis", "Design for Degradation",
+  "Real-time Analysis for Pollution Prevention", "Inherently Safer Chemistry for Accident Prevention"
+];
+
+const links = [
+  "01_gc_prevention.html", "02_gc_atom_economy.html", "03_gc_less_hazardous_synthesis.html",
+  "04_gc_safer_chemical_design.html", "05_gc_safer_solvents_auxiliaries.html",
+  "06_gc_energy_efficiency.html", "07_gc_renewable_feedstocks.html", "08_gc_reduce_derivatives.html",
+  "09_gc_catalysis_green_chem.html", "10_gc_design_for_degradation.html",
+  "11_gc_real_time_analysis.html", "12_gc_inherently_safer_chemistry.html"
+];
+
+const slidersDiv = document.getElementById("sliders");
+const scores = Array(principles.length).fill(0);
+
+function scoreToColor(score) {
+  const colors = ['#d73027', '#fc8d59', '#fee08b', '#d9ef8b', '#1a9850'];
+  return colors[Math.min(Math.round(score), colors.length - 1)];
+}
+
+principles.forEach((principle, i) => {
+  const container = document.createElement("div");
+  container.className = "slider-container";
+
+  const label = document.createElement("label");
+  label.className = "slider-label";
+  label.innerHTML = `<a href="${links[i]}" target="_blank">${i + 1}. ${principle}</a>`;
+  container.appendChild(label);
+
+  const slider = document.createElement("input");
+  slider.type = "range";
+  slider.min = 0;
+  slider.max = 4;
+  slider.value = 0;
+  slider.className = "slider";
+
+  const valueDisplay = document.createElement("span");
+  valueDisplay.className = "slider-value";
+  valueDisplay.innerText = "0";
+
+  slider.oninput = function () {
+    const val = parseInt(this.value);
+    scores[i] = val;
+    valueDisplay.innerText = val;
+    const thumbColor = scoreToColor(val);
+    this.style.setProperty('--thumb-color', thumbColor);
+    this.style.backgroundColor = '#999';
+    updateChart();
+  };
+
+  slider.style.setProperty('--thumb-color', scoreToColor(0));
+  slider.style.backgroundColor = '#999';
+  container.appendChild(slider);
+  container.appendChild(valueDisplay);
+  slidersDiv.appendChild(container);
+});
+
+function totalToColor(total, max = 48) {
+  const ratio = total / max;
+  const green = Math.round(255 * ratio);
+  const red = Math.round(255 * (1 - ratio));
+  return `rgba(${red},${green},0,0.3)`;
+}
+
+function updateChart() {
+  const total = scores.reduce((a, b) => a + b, 0);
+  const avg = total / scores.length;
+  const fillColor = totalToColor(total);
+
+  const r = [...scores, scores[0]];
+  const wrappedPrinciples = ["1. Prevention", "2. Atom<br>Economy", "3. Less Hazardous<br>Chemical Syntheses", "4. Designing Safer<br>Chemicals", "5. Safer Solvents<br>and Auxiliaries", "6. Energy<br>Efficiency", "7. Use of Renewable<br>Feedstocks", "8. Reduce<br>Derivatives", "9. Use of<br>Catalysis", "10. Design for<br>Degradation", "11. Real-time Analysis<br>for Pollution Prevention", "12. Inherently Safer<br>Chemistry for Accident Prevention"];
+
+const theta = [...wrappedPrinciples, wrappedPrinciples[0]];
+
+  const data = [
+    {
+      type: 'scatterpolar',
+      r: Array(scores.length + 1).fill(4),
+      theta: theta,
+      mode: 'lines',
+      line: { dash: 'dash', color: 'gray', width: 2 },
+      hoverinfo: 'skip',
+      showlegend: false
+    },
+    {
+      type: 'scatterpolar',
+      r: r,
+      theta: theta,
+      fill: 'toself',
+      name: 'Assessment',
+      fillcolor: fillColor,
+      line: { color: 'black' },
+      hoverinfo: 'skip',
+      showlegend: false
+    },
+    ...scores.map((score, i) => ({
+      type: 'scatterpolar',
+      r: [score],
+      theta: [wrappedPrinciples[i]],
+      mode: 'markers',
+      marker: { size: 12, color: scoreToColor(score) },
+      hovertemplate: `${principles[i]}<br>Score: ${score}/4<extra></extra>`,
+      showlegend: false
+    }))
+  ];
+
+  Plotly.newPlot("chartDiv", data, {
+    width: 600,
+    height: 570,
+    polar: {
+      domain: { x: [0.1, 0.9], y: [0.1, 0.9] },
+      radialaxis: {
+        visible: true,
+        range: [0, 4],
+	dtick: 1,
+        tickfont: { size: 12 }
+      },
+      angularaxis: {
+        direction: "clockwise",
+        tickfont: { size: 11 },
+        tickangle: 0,
+        tickmode: "array",
+        tickvals: [...Array(wrappedPrinciples.length).keys()],
+        ticktext: wrappedPrinciples
+      }
+    },
+    title: {
+      text: `Total: ${total}/48, Average: ${avg.toFixed(1)}/4`,
+      font: { size: 12 },
+      xref: 'paper',
+      x: 0.5
+    },
+    margin: { t: 40, b: 40, l: 80, r: 80 },
+    autosize: false,
+    paper_bgcolor: 'rgba(0,0,0,0)',
+    plot_bgcolor: 'rgba(0,0,0,0)',
+    cliponaxis: false
+  }, { responsive: true });
+}
+
+function downloadSVG() {
+  Plotly.downloadImage(chartDiv, {
+    format: 'svg',
+    filename: 'green_chemistry_assessment',
+    width: 1000,
+    height: 800
+  });
+}
+
+async function downloadPDF() {
+  const { jsPDF } = window.jspdf;
+  const pdf = new jsPDF({ orientation: 'landscape' });
+
+  const sections = [
+    { id: 'intro', title: 'Introduction' },
+    { id: 'sliders', title: 'Selected Conditions' },
+    { id: 'chartDiv', title: 'Radar Plot' },
+    { id: 'rubric', title: 'Assessment Rubric' }
+  ];
+
+  const totalPages = sections.length;
+  const footerLeft = "Green Chemistry Assessment Tool | Developer: Benji Fenech-Salerno";
+
+  for (let i = 0; i < sections.length; i++) {
+    const el = document.getElementById(sections[i].id);
+
+    // Temporarily remove shadows and round corners
+    const originalStyle = el.getAttribute("style") || "";
+    el.style.boxShadow = 'none';
+    el.style.borderRadius = '0px';
+    el.style.backgroundColor = '#ffffff';
+
+    const canvas = await html2canvas(el, { backgroundColor: '#ffffff' });
+    const imgData = canvas.toDataURL('image/png');
+    const imgProps = pdf.getImageProperties(imgData);
+    const pdfWidth = pdf.internal.pageSize.getWidth();
+    const pdfHeight = pdf.internal.pageSize.getHeight();
+
+    const maxImageHeight = pdfHeight - 50; // leave room for footer and title
+    const imgWidth = pdfWidth - 20;
+    const imgHeight = (imgProps.height * imgWidth) / imgProps.width;
+    const finalHeight = Math.min(imgHeight, maxImageHeight);
+    const finalWidth = (imgProps.width * finalHeight) / imgProps.height;
+
+    if (i > 0) pdf.addPage();
+    pdf.setFontSize(16);
+    pdf.text(sections[i].title, 10, 20);
+    pdf.addImage(imgData, 'PNG', 10, 30, finalWidth, finalHeight);
+
+    // Footer
+    pdf.setFontSize(10);
+    pdf.setTextColor(100);
+    pdf.text(footerLeft, 10, pdfHeight - 10); // bottom-left
+    pdf.text(`Page ${i + 1} of ${totalPages}`, pdfWidth - 10, pdfHeight - 10, { align: 'right' }); // bottom-right
+
+    // Restore original styles
+    el.setAttribute("style", originalStyle);
+  }
+
+  pdf.save('green_chemistry_assessment.pdf');
+}
+
+
+updateChart();
+</script>
+</body>
+</html>
