@@ -203,24 +203,126 @@
   <button onclick="downloadPDF()">Download PDF</button>
 </div>
 
-<div id="rubric" class="card" style="width: 100%; max-width: 1300px; margin: 0 auto;">
-  <h3>Green Chemistry Assessment Rubric</h3>
-  <table>
-    <tr><th>Principle</th><th>0 (Non-compliant)</th><th>1 (Poor)</th><th>2 (Moderate)</th><th>3 (Good)</th><th>4 (Excellent)</th></tr>
-    <tr><td>1. Prevention</td><td>No effort to reduce waste</td><td>Minimal</td><td>Moderate effort</td><td>Most waste minimized</td><td>No waste generated</td></tr>
-    <tr><td>2. Atom Economy</td><td>&lt;30% AE</td><td>30–50%</td><td>51–70%</td><td>71–90%</td><td>&gt;90%</td></tr>
-    <tr><td>3. Less Hazardous Syntheses</td><td>Highly toxic reagents</td><td>Toxic reagents</td><td>Safer with trade-offs</td><td>Generally safe</td><td>Benign reagents</td></tr>
-    <tr><td>4. Designing Safer Chemicals</td><td>Known toxic product</td><td>Minor toxicity</td><td>Some safety</td><td>Low toxicity</td><td>Non-toxic</td></tr>
-    <tr><td>5. Safer Solvents & Auxiliaries</td><td>Halogenated/unsafe</td><td>Harmful solvent</td><td>Safer alternative</td><td>Mostly safe</td><td>No solvents</td></tr>
-    <tr><td>6. Energy Efficiency</td><td>&gt;100 °C / cryo required</td><td>High energy</td><td>Moderate energy</td><td>Low energy</td><td>Ambient</td></tr>
-    <tr><td>7. Renewable Feedstocks</td><td>Fossil-based</td><td>Mostly fossil</td><td>Mixed sources</td><td>Mostly renewable</td><td>100% renewable</td></tr>
-    <tr><td>8. Reduce Derivatives</td><td>Multiple protection steps</td><td>Several</td><td>Some</td><td>Few</td><td>None</td></tr>
-    <tr><td>9. Catalysis</td><td>No catalyst</td><td>Stoichiometric</td><td>Basic catalyst</td><td>Efficient</td><td>Selective/biocatalyst</td></tr>
-    <tr><td>10. Design for Degradation</td><td>Persistent compounds</td><td>Limited degradation</td><td>Moderate</td><td>Mostly degradable</td><td>Readily biodegradable</td></tr>
-    <tr><td>11. Real-time Analysis</td><td>No monitoring</td><td>Limited</td><td>Occasional</td><td>Frequent</td><td>Continuous/in-line</td></tr>
-    <tr><td>12. Inherently Safer Chemistry</td><td>Explosive, volatile</td><td>Hazardous</td><td>Reduced hazards</td><td>Low-risk</td><td>Intrinsically safe</td></tr>
+<div id="rubric" class="card" style="width: 100%; max-width: 1300px; margin: 0 auto; font-family: system-ui, -apple-system, Segoe UI, Roboto, Helvetica, Arial, sans-serif;">
+  <h3 style="margin: 16px 0;">Practical Green Chemistry Assessment Rubric</h3>
+  <p style="margin: 0 0 12px 0; color: #444; font-size: 0.95rem;">
+    Each level is anchored to measurable criteria (e.g., % thresholds, GHS categories, OECD tests) to improve inter-rater reliability.
+  </p>
+  <table style="width:100%; border-collapse: collapse; font-size: 0.95rem;">
+    <thead>
+      <tr>
+        <th style="text-align:left; border-bottom: 2px solid #ddd; padding: 8px;">Principle</th>
+        <th style="text-align:left; border-bottom: 2px solid #ddd; padding: 8px;">0 (Non-compliant)</th>
+        <th style="text-align:left; border-bottom: 2px solid #ddd; padding: 8px;">1 (Poor)</th>
+        <th style="text-align:left; border-bottom: 2px solid #ddd; padding: 8px;">2 (Moderate)</th>
+        <th style="text-align:left; border-bottom: 2px solid #ddd; padding: 8px;">3 (Good)</th>
+        <th style="text-align:left; border-bottom: 2px solid #ddd; padding: 8px;">4 (Excellent)</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td style="padding: 8px; border-top: 1px solid #eee;">1. Prevention</td>
+        <td style="padding: 8px; border-top: 1px solid #eee;">No prevention; waste &gt;80% of total mass (E-factor &gt;4)</td>
+        <td style="padding: 8px; border-top: 1px solid #eee;">Basic minimisation; waste 60–80%</td>
+        <td style="padding: 8px; border-top: 1px solid #eee;">Moderate prevention; waste 40–59%</td>
+        <td style="padding: 8px; border-top: 1px solid #eee;">Strong prevention; waste 20–39%</td>
+        <td style="padding: 8px; border-top: 1px solid #eee;">Near-zero waste; &lt;20% waste or closed-loop reuse</td>
+      </tr>
+      <tr>
+        <td style="padding: 8px; border-top: 1px solid #eee;">2. Atom Economy</td>
+        <td style="padding: 8px; border-top: 1px solid #eee;">&lt;30% AE</td>
+        <td style="padding: 8px; border-top: 1px solid #eee;">30–50% AE</td>
+        <td style="padding: 8px; border-top: 1px solid #eee;">51–70% AE</td>
+        <td style="padding: 8px; border-top: 1px solid #eee;">71–90% AE</td>
+        <td style="padding: 8px; border-top: 1px solid #eee;">&gt;90% AE</td>
+      </tr>
+      <tr>
+        <td style="padding: 8px; border-top: 1px solid #eee;">3. Less Hazardous Syntheses (reagents)</td>
+        <td style="padding: 8px; border-top: 1px solid #eee;">Includes GHS Category 1–2 acute hazards (e.g., H300/310/330)</td>
+        <td style="padding: 8px; border-top: 1px solid #eee;">Includes GHS Category 3 acute hazards</td>
+        <td style="padding: 8px; border-top: 1px solid #eee;">Only GHS Category 4 (“harmful”) hazards present</td>
+        <td style="padding: 8px; border-top: 1px solid #eee;">Only Category 5/irritants; no Cat. 1–4 acute hazards</td>
+        <td style="padding: 8px; border-top: 1px solid #eee;">No hazardous classification under GHS for reagents used</td>
+      </tr>
+      <tr>
+        <td style="padding: 8px; border-top: 1px solid #eee;">4. Designing Safer Chemicals (product)</td>
+        <td style="padding: 8px; border-top: 1px solid #eee;">Product has GHS Cat. 1–2 acute/chronic hazards or SVHC profile</td>
+        <td style="padding: 8px; border-top: 1px solid #eee;">Product Cat. 3 hazards or notable chronic endpoints (e.g., STOT Cat. 2)</td>
+        <td style="padding: 8px; border-top: 1px solid #eee;">Low acute toxicity (Cat. 4–5); limited chronic concerns with controls</td>
+        <td style="padding: 8px; border-top: 1px solid #eee;">No acute GHS hazards under intended use; benign by design claims supported</td>
+        <td style="padding: 8px; border-top: 1px solid #eee;">Verified non-toxic/non-sensitising with OECD guideline data; no SVHC traits</td>
+      </tr>
+      <tr>
+        <td style="padding: 8px; border-top: 1px solid #eee;">5. Safer Solvents &amp; Auxiliaries</td>
+        <td style="padding: 8px; border-top: 1px solid #eee;">Uses red-list/“not recommended” solvents (e.g., CH<sub>2</sub>Cl<sub>2</sub>, benzene, NMP)</td>
+        <td style="padding: 8px; border-top: 1px solid #eee;">Uses amber/caution solvents; significant hazards remain</td>
+        <td style="padding: 8px; border-top: 1px solid #eee;">Uses safer options (e.g., EtOH, EtOAc, water) with some trade-offs</td>
+        <td style="padding: 8px; border-top: 1px solid #eee;">All solvents from green/“recommended” lists (e.g., CHEM21/Pfizer)</td>
+        <td style="padding: 8px; border-top: 1px solid #eee;">Solvent-free process or no auxiliaries required</td>
+      </tr>
+      <tr>
+        <td style="padding: 8px; border-top: 1px solid #eee;">6. Energy Efficiency</td>
+        <td style="padding: 8px; border-top: 1px solid #eee;">T &gt;150&nbsp;°C or &lt; −50&nbsp;°C; high pressure/energy intensive</td>
+        <td style="padding: 8px; border-top: 1px solid #eee;">100–150&nbsp;°C or cryogenic steps; significant energy demand</td>
+        <td style="padding: 8px; border-top: 1px solid #eee;">50–100&nbsp;°C; moderate energy input; standard pressure</td>
+        <td style="padding: 8px; border-top: 1px solid #eee;">25–50&nbsp;°C; mild energy use; no extremes</td>
+        <td style="padding: 8px; border-top: 1px solid #eee;">Ambient T/P; energy-minimised or energy-integrated (e.g., heat recovery)</td>
+      </tr>
+      <tr>
+        <td style="padding: 8px; border-top: 1px solid #eee;">7. Renewable Feedstocks</td>
+        <td style="padding: 8px; border-top: 1px solid #eee;">0% renewable; entirely fossil-based carbon/feed</td>
+        <td style="padding: 8px; border-top: 1px solid #eee;">&lt;25% renewable by mass or carbon content</td>
+        <td style="padding: 8px; border-top: 1px solid #eee;">25–49% renewable</td>
+        <td style="padding: 8px; border-top: 1px solid #eee;">50–74% renewable</td>
+        <td style="padding: 8px; border-top: 1px solid #eee;">≥75% renewable (or 100% where feasible)</td>
+      </tr>
+      <tr>
+        <td style="padding: 8px; border-top: 1px solid #eee;">8. Reduce Derivatives</td>
+        <td style="padding: 8px; border-top: 1px solid #eee;">&gt;3 protection/derivatisation steps per product molecule</td>
+        <td style="padding: 8px; border-top: 1px solid #eee;">3 steps</td>
+        <td style="padding: 8px; border-top: 1px solid #eee;">2 steps</td>
+        <td style="padding: 8px; border-top: 1px solid #eee;">1 step</td>
+        <td style="padding: 8px; border-top: 1px solid #eee;">0 steps</td>
+      </tr>
+      <tr>
+        <td style="padding: 8px; border-top: 1px solid #eee;">9. Catalysis</td>
+        <td style="padding: 8px; border-top: 1px solid #eee;"><strong>No catalysis</strong> and no catalytic alternative considered; brute-force/stoichiometric by design</td>
+        <td style="padding: 8px; border-top: 1px solid #eee;"><strong>Stoichiometric reagent required</strong> (reagent consumed; ≥1.0&nbsp;eq). Examples: KMnO<sub>4</sub>, NaBH<sub>4</sub>, Grignard</td>
+        <td style="padding: 8px; border-top: 1px solid #eee;">Catalyst used but <em>inefficient</em>: loading &gt;10&nbsp;mol% and/or selectivity &lt;90%; poor recyclability</td>
+        <td style="padding: 8px; border-top: 1px solid #eee;">Efficient catalysis: loading ≤5&nbsp;mol%, selectivity ≥90%, acceptable TON/TOF or ≥3 recycles</td>
+        <td style="padding: 8px; border-top: 1px solid #eee;">Highly selective/green catalysis: selectivity ≥95% <em>and</em> low loading (≤1–2&nbsp;mol%) with high TON/TOF; biocatalyst, organocatalyst, or recyclable heterogeneous catalyst (≥5 recycles)</td>
+      </tr>
+      <tr>
+        <td style="padding: 8px; border-top: 1px solid #eee;">10. Design for Degradation</td>
+        <td style="padding: 8px; border-top: 1px solid #eee;">Persistent (env. half-life &gt;6 months) and/or PBT/vPvB profile; harmful degradation products known</td>
+        <td style="padding: 8px; border-top: 1px solid #eee;">Limited degradation (3–6 months half-life) or potential bioaccumulation concerns</td>
+        <td style="padding: 8px; border-top: 1px solid #eee;">Moderate degradation (1–3 months) with no known toxic degradants under normal conditions</td>
+        <td style="padding: 8px; border-top: 1px solid #eee;">Mostly degradable (&lt;1 month) or passes screening tests; no hazardous degradants identified</td>
+        <td style="padding: 8px; border-top: 1px solid #eee;">Readily biodegradable (OECD 301/302) and no hazardous/by-product concerns across likely pathways</td>
+      </tr>
+      <tr>
+        <td style="padding: 8px; border-top: 1px solid #eee;">11. Real-time Analysis for Pollution Prevention</td>
+        <td style="padding: 8px; border-top: 1px solid #eee;">No monitoring; batch end-point only</td>
+        <td style="padding: 8px; border-top: 1px solid #eee;">Occasional lab/offline checks (per batch)</td>
+        <td style="padding: 8px; border-top: 1px solid #eee;">Periodic at-line monitoring (per stage)</td>
+        <td style="padding: 8px; border-top: 1px solid #eee;">Frequent at-/on-line monitoring (key CPPs tracked)</td>
+        <td style="padding: 8px; border-top: 1px solid #eee;">Continuous in-line/online analytics with control feedback (PAT)</td>
+      </tr>
+      <tr>
+        <td style="padding: 8px; border-top: 1px solid #eee;">12. Inherently Safer Chemistry for Accident Prevention</td>
+        <td style="padding: 8px; border-top: 1px solid #eee;">High-hazard operations (explosive, pyrophoric, highly volatile toxics) without feasible substitution</td>
+        <td style="padding: 8px; border-top: 1px solid #eee;">Hazards present requiring heavy engineered/administrative controls to manage risk</td>
+        <td style="padding: 8px; border-top: 1px solid #eee;">Reduced hazards via substitution/dilution/intensification; residual risks remain manageable</td>
+        <td style="padding: 8px; border-top: 1px solid #eee;">Low-risk chemistry; minor hazards easily contained; inherent inventory minimised (e.g., flow)</td>
+        <td style="padding: 8px; border-top: 1px solid #eee;">Intrinsically safe by design (benign materials/conditions; minimal hazardous energy; inherently stable)</td>
+      </tr>
+    </tbody>
   </table>
+  <p style="margin-top: 10px; color:#666; font-size: 0.9rem;">
+    Notes: AE = atom economy. GHS = Globally Harmonized System. OECD 301/302 = ready/inherent biodegradability tests. PBT/vPvB = persistent, bioaccumulative, toxic / very persistent, very bioaccumulative. TON/TOF = turnover number/frequency.
+  </p>
 </div>
+
 
 <script>
 
