@@ -1,0 +1,224 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>DodecaGreen · Principle 10 — Design for Degradation</title>
+  <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+  <div id="main-container">
+    <div class="card breadcrumb">
+      <a href="index.html">DodecaGreen</a> › Principle 10 — Design for Degradation
+    </div>
+
+    <header class="card" style="padding: 20px;">
+      <div style="display: flex; justify-content: space-between; align-items: center; flex-wrap: wrap; gap: 12px;">
+        <h1>Principle 10: Design for Degradation</h1>
+        <span class="badge">Guide</span>
+      </div>
+      <p>Design for Degradation is the green chemistry principle that chemicals and products should break down to harmless substances after use. In practice this means building in weaknesses – such as hydrolysable or enzymatically cleavable bonds – so that, once the product has served its purpose, it does not persist as pollution. As Anastas and Warner put it, “chemical products should be designed so that at the end of their function they break down into innocuous degradation products and do not persist in the environment”. In summary, Design for Degradation aims to prevent the long-term accumulation of chemical waste by ensuring materials degrade fully after use.</p>
+      <a class="btn" href="index.html">← Back to Dashboard</a>
+    </header>
+
+    <section class="card collapsible open">
+      <div class="collapsible-header"><h2>Quick Start: What “Designed for Degradation” Means</h2><div class="toggle-btn">−</div></div>
+      <div class="collapsible-content section-body">
+        <p>A chemical or material can be considered designed for degradation if it meets criteria such as:</p>
+        <ul>
+          <li><strong>Built-in breakability:</strong> contains bonds or linkers (e.g. esters, amides, anhydrides) that readily hydrolyse, oxidise or undergo enzymatic cleavage under disposal conditions. For example, many biodegradable polyesters use ester bonds that microbes can attack. (See Strategies below.)</li>
+          <li><strong>No persistent moieties:</strong> lacks strongly electron-withdrawing or hydrophobic groups (e.g. halogens like Cl or F) known to inhibit microbial breakdown. For example, heavily chlorinated or highly branched molecules tend to be non-degradable. Removing these groups speeds degradation.</li>
+          <li><strong>Tested biodegradability:</strong> has been shown to meet recognised standards (for instance, ≥60% carbon conversion to CO₂ in a 28-day OECD 301 test) or short environmental half-lives. (By OECD/PBT criteria, a chemical with water half-life < 60 days is non-persistent.)</li>
+          <li><strong>Harmless products:</strong> its end-products of degradation are nontoxic (e.g. simple inorganic or bioavailable fragments) rather than persistent toxins.</li>
+        </ul>
+        <div class="kpi">
+          <div class="item"><strong>Goal</strong><br/>Develop products that serve their function and then disappear harmlessly, minimising waste and long-term contamination.</div>
+          <div class="item"><strong>Why</strong><br/>To cut exposure and risk. Persistent chemicals accumulate in ecosystems (food, water, soil) and can cause chronic health and ecological harm. By ensuring breakdown, exposure (and thus risk) is dramatically reduced. Degradable products meet strict regulations (avoiding PBT/PFAS status) and often reduce cleanup costs.</div>
+          <div class="item"><strong>How</strong><br/>Embed degradability features in design. For example, incorporate labile bonds (esters, amides, carbonates), avoid toxic persistent elements (don’t use unnecessary chlorination), and test early for biodegradation. Use modelling or “rules of thumb” (QSAR) to predict fate. In practice, manufacturers may co-design the waste stream (e.g. wastewater treatment) to ensure microbes can finish the job.</div>
+        </div>
+      </div>
+    </section>
+
+    <section class="card collapsible">
+      <div class="collapsible-header"><h2>Introduction & Rationale</h2><div class="toggle-btn">+</div></div>
+      <div class="collapsible-content section-body">
+        <p>The concept of designing chemicals to degrade is as old as green chemistry itself. In 1998 Paul Anastas and John Warner formalised the 12 Principles of Green Chemistry, explicitly stating that products should break down to innocuous substances after use. This principle grew out of growing awareness that many persistent organic pollutants (e.g. DDT, PCBs, PFAS) bioaccumulate and resist natural breakdown, causing global contamination. Early green chemists realised that rather than relying on end-of-pipe treatment, chemists must consider a molecule’s entire life cycle. Thus Design for Degradation asks scientists to think of disposal as part of product design.</p>
+        <p>At its core, the principle leverages structure–property relationships: by altering chemical structures, we can shift their fate. For example, swapping a non-degradable polymer backbone for an ester-containing one creates a material that microbes can consume. Crucially, degradation should occur after use, not during. That means the product must still be stable enough for its application, then degrade once discarded or after its function ends. This often requires a mindset shift: instead of endlessly durable goods, we envisage products with a built-in “self-destruct” sequence triggered by environment (light, moisture, microbes) once the product’s job is done.</p>
+        <h3>Understanding the Principle</h3>
+        <p><strong>Contrast with conventional design:</strong> Traditionally, chemists prized durability: plastic bottles were made tough to last; surfactants were engineered for powerful cleaning (often adding chlorine) regardless of fate. Conventional R&D often ignores end-of-life. The problem is obvious in products like plastics: most plastics are designed not to break down. For example, common PET or PE products survive in landfills for centuries. Even “compostable” PLA bags can resist real-world conditions; one report noted that typical PLA bags “don’t break down during typical composting” and end up in landfills “as long as forever plastics”. In effect, conventional design passes the persistence problem down the line.</p>
+        <p><strong>Design-for-degradation mindset:</strong> Green chemistry demands flipping the script. We must design with fate in mind, as if the disposal environment (sunlight, microbes, wastewater plants) is the next user. This global perspective recognises that any chemical entering the environment will eventually encounter degrade triggers. Chemists have learned from history: for example, the once-common branched alkylbenzene sulfonate (a detergent surfactant) caused massive foaming in rivers because it resisted biodegradation. In the 1960s the industry switched to linear alkylbenzene sulfonates (LAS), which 90–95% biodegrade in days. This simple switch eliminated the pollution problem. Today, understanding of global flows (e.g. how chemicals move through water and air) informs smarter design.</p>
+        <p>In sum, Design for Degradation requires chemists to plan the end from the start. It means asking: “After this does its job, can it be safely recycled, remediated or consumed by nature?” By making this a criterion in development, the global impact of chemicals can be greatly reduced. (For instance, a properly designed degradable material will not contribute to microplastic build-up – embedded-enzyme plastics have even been shown to break down into ~98% small molecules, leaving virtually no microplastic residue.) </p>
+      </div>
+    </section>
+
+    <section class="card collapsible">
+      <div class="collapsible-header"><h2>Why It Matters</h2><div class="toggle-btn">+</div></div>
+      <div class="collapsible-content section-body">
+        <p><strong>Environmental protection:</strong> Persistent chemicals accumulate in ecosystems, contaminating soil, water and air. By contrast, degradable designs minimise ecological loading. They ensure that once a chemical has served its function, it will be transformed into benign substances (like CO₂, water, biomass), preventing long-term pollution. For example, linear detergents biodegrade rapidly in wastewater, eliminating foaming and harm to aquatic life. Designer degradable materials also address new problems like microplastics – e.g. engineered enzyme-containing plastics break fully down rather than generating persistent fragments.</p>
+        <p><strong>Human and animal health:</strong> Lower environmental persistence means lower exposure. Bioaccumulative toxins can build up in food chains, eventually reaching humans; degradation cuts this off. As one review notes, designing products that break down “aims to minimise the persistence and accumulation of chemical pollutants… and ultimately to reduce toxicity”. In practice, this can reduce chronic health risks from endocrine disruptors or carcinogens. For instance, avoiding persistent drug metabolites helps protect aquatic life and drinking water. Green-design medicines (discussed below) aim to avoid “forever drug” scenarios.</p>
+        <p><strong>Economic and regulatory drivers:</strong> Degradable products can be cheaper to manage. Waste disposal and cleanup (oil spills, landfill) are costly; degradable materials reduce this burden. Moreover, many regions have strict regulations targeting persistent and bioaccumulative substances (PBT). For example, EU criteria flag any substance with a water half-life > 60 days or certain bioconcentration as persistent, triggering bans. Designing chemicals to fail these PBT thresholds (by having short half-lives) ensures compliance. Industry has responded: the shift to linear surfactants was driven by the need to meet early wastewater regulations. Today, with laws on PFAS and REACH restrictions, degradability is increasingly a legal requirement, not just a choice.</p>
+        <p><strong>Safety and sustainability goals:</strong> A degradable design inherently reduces accident risk. For example, self-decomposing solvents reduce explosion/fire potential over time. It also ties into broader sustainability: it helps achieve UN Sustainable Development Goals (e.g. SDG 12 on responsible consumption) by closing the loop on chemical lifecycles. In essence, Design for Degradation embeds end-of-life safety and sustainability into chemical innovation.</p>
+      </div>
+    </section>
+
+    <section class="card collapsible">
+      <div class="collapsible-header"><h2>Measuring Degradation</h2><div class="toggle-btn">+</div></div>
+      <div class="collapsible-content section-body">
+        <p>To implement this principle, we must quantify how and how fast a substance degrades. Key metrics include:</p>
+        <ul>
+          <li><strong>Biodegradation percentage:</strong> Often measured by standard tests (e.g. OECD 301). These assess how much of the substance is converted to CO₂ (mineralisation) or removed from solution (DOC removal). By OECD definition, “ready biodegradability” requires ≥60% of the carbon to be respired to CO₂ within 28 days (with some tests demanding 70% DOC removal). Hitting this threshold indicates the compound is not likely to persist.</li>
+          <li><strong>Half-life (t½):</strong> The time required for 50% of the chemical to degrade under specific conditions (e.g. in soil, water or air). Half-lives are central to regulatory persistence criteria. For instance, many agencies set PBT cut-offs such as >60–120 days in water or soil meaning persistent; conversely, design targets aim for half-lives well below these values. Measured half-lives can be obtained from simulation studies or environmental fate experiments (aerobic soil tests, etc.).</li>
+          <li><strong>Mineralisation vs primary degradation:</strong> It’s important to distinguish partial breakdown from complete mineralisation. A chemical may fragment (e.g. UV photolysis) without fully mineralising, leaving smaller organic pieces. Green-design favours complete mineralisation (full CO₂) to ensure no persistent metabolites remain. Mineralisation is often inferred from CO₂ evolution tests, while partial degradation may be monitored by chromatography (tracking breakdown products).</li>
+          <li><strong>Bioaccumulation factor (BAF/BCF):</strong> Since “persistent” often pairs with “bioaccumulative”, checking an environmental bioconcentration factor (how much the chemical concentrates in an organism relative to its environment) is relevant. Low accumulation is a goal of degradable design.</li>
+          <li><strong>Other metrics:</strong> Designers also use computational tools and in silico QSAR models to predict biodegradability from molecular structure. New high-throughput assays and “degradation indices” are being developed to screen candidates. In practice, a compound designed for degradation should pass both biodegradability tests and key threshold criteria (half-lives) in relevant media (water, soil, sediment).</li>
+        </ul>
+      </div>
+    </section>
+
+    <section class="card collapsible">
+      <div class="collapsible-header"><h2>Strategies for Design for Degradation</h2><div class="toggle-btn">+</div></div>
+      <div class="collapsible-content section-body">
+        <ol>
+          <li><strong>Incorporate labile bonds.</strong> Intentionally include bonds that hydrolyse or cleave under environmental conditions. Common choices are esters, amides, carbonates, anhydrides and labile ethers. For example, poly(lactic acid) (PLA) and poly(caprolactone) plastics contain ester linkages that can be cleaved by water and enzymes. Designing these bonds into the backbone means microbes (or simple hydrolysis) can chop the polymer into small acids, alcohols or sugars. In one notable study, plastics embedded with hydrolytically active segments yielded >98% break-down: a PCL-based plastic containing built-in lipase clusters degraded almost completely into lactic acid and other small molecules in warm water.</li>
+          <li><strong>Use bio-based, biodegradable monomers.</strong> Starting materials of natural origin are often more easily metabolised. For example, polymers made from renewable sources like starch, cellulose, amino acids or bio-monomers (e.g. succinic, adipic acids) have inherently more “natural” structures. Polyhydroxyalkanoates (PHAs) – polyesters of simple hydroxy fatty acids – or polyamides derived from amino acids are good examples. These materials leverage existing microbial pathways. The idea is to mimic nature’s building blocks, so that after use, microorganisms already have enzymes ready to degrade them. As one green chemistry text notes, chemists can “leverage structure–property relationships” to ensure targets are effective in use but “readily degrade and won’t persist”.</li>
+          <li><strong>Eliminate persistent features.</strong> Actively avoid elements and structures known to resist degradation. This includes halogenation and excessive aromaticity. Chlorine or fluorine atoms make molecules electron-poor and sterically hindered, which many microbes cannot attack. Likewise, polycyclic aromatics or highly branched alkanes tend to biodegrade very slowly. Removing these features (or minimizing them) greatly enhances degradability. For instance, the historically persistent 2,4,5-trichlorophenol pesticide was phased out in favour of simpler phenols partly because every extra Cl made breakdown harder. In design, if a halogen is not essential for function, it’s omitted or replaced with oxygen/nitrogen which promote biodegradation.</li>
+          <li><strong>Design stimuli-responsive triggers.</strong> Engineer materials that remain stable during use but rapidly degrade under a specific stimulus at end-of-life. Examples include photodegradable linkers (bonds that break under UV light) or self-immolative polymers (chain reactions triggered by pH or heat). A recent innovation is embedding polymer-eating enzymes as “on-switches” for degradation: UC Berkeley researchers added lipase clusters directly into a polyester matrix so that exposure to warm water unlocked complete depolymerisation. In general, stimuli (light, moisture, pH, heat) can be used as green “keys” to break otherwise robust bonds, ensuring the product survives storage/use but self-destructs when disposed.</li>
+          <li><strong>Minimise molecular size and complexity.</strong> Smaller, simpler molecules usually break down faster. High molecular weight, cross-linking or heavy branching often slow degradation. In polymers, using linear (non-crosslinked) chains and low crystallinity promotes uptake by water and microbes. The surfactant case illustrates this: linear alkylbenzene sulfonates biodegrade readily, whereas their branched counterparts do not. Similarly, bulky substituents or rigid rings can be trimmed. When designing complex products, chemists should consider whether the structure can fragment into small, innocuous pieces.</li>
+          <li><strong>Plan fragmentation pathways.</strong> Think beyond just breaking the parent compound – ensure each fragment is benign. For example, incorporate moieties that will break down into water, CO₂, simple alcohols/acids or natural metabolites. Using peptide or sugar units, for instance, means degradation yields amino acids or glucose. The idea is akin to a “molecular jigsaw puzzle” that falls into harmless parts. Knowing likely biodegradation routes (photolytic, enzymatic, hydrolytic) lets designers control end-products. (Advanced tools like reaction prediction software can simulate these pathways to check for toxic intermediates.)</li>
+          <li><strong>Evaluate disposal routes and infrastructure.</strong> Design for the environment in which degradation will occur. For example, if a material will go to industrial composting, ensure it meets those conditions (high heat, specific microbes). If it’s for wastewater, design it to be removed in bioreactors. In practice, some plastics (e.g. PLA) only degrade in industrial composting, not in home or marine environments. A truly versatile design might combine several triggers, or include additives (bio-catalysts) that activate in a landfill or sewage plant.</li>
+        </ol>
+        <p>These strategies can be combined. Often one starts with a baseline degradable scaffold (e.g. a biodegradable polymer) and then optimises performance while retaining key labile bonds. Computational models and fragment-based design rules (from databases of known degradable groups) can guide these choices. Ultimately, the goal is to embed effective function and clean breakdown into one molecule or material.</p>
+      </div>
+    </section>
+
+    <section class="card collapsible">
+      <div class="collapsible-header"><h2>Examples and Case Studies</h2><div class="toggle-btn">+</div></div>
+      <div class="collapsible-content section-body">
+        <h3>Surfactants: Linear vs Branched.</h3>
+        <p>A classic example is detergent surfactants. Early formulations used branched alkylbenzene sulfonates, which caused sewage foaming because they biodegraded very slowly. In the 1960s, the industry shifted to linear alkylbenzene sulfonates (LAS). The linear chain is easily cleaved by bacteria in sewage, so 90–95% of LAS is gone in days. This simple structural change solved a major pollution problem: rivers no longer foam up, and aquatic organisms aren’t exposed to persistent detergent molecules. Notably, the linear version was actually four times more toxic to fish than the branched one, but because it degraded so quickly, its overall environmental impact was far smaller. This case illustrates how Design for Degradation can trump simple toxicity metrics.</p>
+        <h3>Plastics: Biodegradable Polymers.</h3>
+        <p>The push to reduce plastic waste has led to many examples of degradable polymers. For instance, polylactic acid (PLA) – a plant-derived polyester – can be composted to CO₂ and water. However, many so-called “biodegradable” plastics still require specific conditions. A recent innovation embeds enzymes into the plastic: researchers incorporated lipase clusters into a polyester (PCL) blend. When the plastic was exposed to warm water, the enzymes became active and degraded ~98% of the material to small molecules. By contrast, conventional PLA bags barely degrade in a home compost and can contaminate recycling streams. This example shows both success and challenge: with clever design (enzymes), plastics can be engineered to self-destruct; but without it, many “compostable” claims fail.</p>
+        <h3>Pharmaceuticals: Benign-by-Design Drugs.</h3>
+        <p>Pharmaceuticals pose a unique challenge: they must be stable enough in the body to act on targets, yet break down safely after excretion. Green chemists advocate benign-by-design drugs that degrade post-use. For example, certain antiparasitic drugs (macrocyclic lactones like ivermectin) are known to degrade relatively quickly in the environment via oxidation, hydrolysis and photolysis. Still, their metabolites can persist, so researchers now focus on novel delivery systems and prodrug designs that enhance complete breakdown. One study notes that designing degradability is vital to prevent chronic ecotoxic effects in soils and rivers from veterinary drugs. In practice, drug designers are linking active molecules to biodegradable carriers or including ester linkages so that, after therapeutic action, only simple acids or innocuous fragments remain.</p>
+        <h3>Plasticizers and Additives.</h3>
+        <p>Common plasticizers like DEHP (a phthalate) are notoriously persistent. Chemists have applied design for degradation by tweaking molecular geometry. For instance, studies compared DEHP to alternative diesters of maleic, fumaric and succinic acids. It was found that succinic diesters (with a saturated centre) biodegrade quickly, whereas the cis‑maleate analogues degrade very slowly. Moreover, the succinic esters still functioned effectively as plasticizers. Thus, replacing the phthalate’s cis-double bond with a saturated succinate gave a greener plasticizer: it meets performance needs but is readily consumed by soil bacteria. This illustrates how small structural changes (geometry and saturation) can switch a chemical from “persistent” to “biodegradable” without losing its useful properties.</p>
+        <p>These cases – spanning detergents, plastics, drugs and additives – show both successes and challenges of Design for Degradation. In each, deliberate molecular changes either solved or mitigated real pollution problems. They also highlight the trade-offs: toxicology, cost or functionality must be balanced against degradability. Nonetheless, such examples demonstrate the actionable nature of this principle.</p>
+      </div>
+    </section>
+
+    <section class="card collapsible">
+      <div class="collapsible-header"><h2>Strengths and Limitations</h2><div class="toggle-btn">+</div></div>
+      <div class="collapsible-content section-body">
+        <h3>Strengths</h3>
+        <ul>
+          <li>Reduced pollution and risk: The biggest benefit is eliminating sources of long-term contamination. By ensuring chemicals degrade, exposure is cut off and ecosystems are protected. For instance, switching to degradable surfactants and plastics has already cleared many pollutants from waste streams.</li>
+          <li>Lower chronic toxicity: Fast biodegradation means even if a compound is somewhat hazardous, its hazard doesn’t translate into risk (since it doesn’t persist). As a result, design-for-degradation often yields lower effective toxicity. In risk terms, it’s like turning off the exposure side of hazard × exposure.</li>
+          <li>Regulatory alignment: Degradable chemicals are less likely to be classified as PBT (persistent, bioaccumulative, toxic). This helps companies meet legal standards and avoid bans. The LAS detergent example shows how degradable design can preempt regulatory trouble.</li>
+          <li>Innovation and new markets: The principle drives innovation in materials (biopolymers, green formulations, safer additives) and can open markets for eco-friendly products. It also taps into renewable feedstocks (e.g. plant-derived monomers), advancing sustainability. Recent reviews note the “urgent” need to find degradable alternatives for ubiquitous materials like plastics.</li>
+          <li>Waste management benefits: Degradable products often simplify disposal. For example, readily biodegradable solvents can be treated on-site by microbes, reducing hazardous waste. This can lower disposal costs and energy use.</li>
+        </ul>
+        <h3>Limitations</h3>
+        <ul>
+          <li>Performance vs persistence trade-off: Achieving the right balance is hard. A molecule needs enough stability to work (shelf-life, efficacy) yet must degrade later. Often, the very groups that confer functionality (e.g. electron-poor moieties for reactivity) also impede breakdown. For example, useful chlorine atoms may need to be removed to boost degradability, potentially compromising performance.</li>
+          <li>Incomplete or unpredictable degradation: Real-world conditions can thwart design. Some “biodegradable” plastics do not compost in home/industrial systems as intended. Partial breakdown can leave microplastic fragments or unknown metabolites. Designing for clean end-products requires deep understanding of degradation pathways, which is complex.</li>
+          <li>Increased cost or complexity: Synthesising novel degradable molecules or embedding additives (enzymes, cleavable links) can be more expensive. This may limit adoption, especially for low-margin products. Additionally, extra testing (long biodegradation studies) adds time and cost to development.</li>
+          <li>Limited universality: Some applications simply demand inertness (e.g. medical implants, high-performance aerospace materials). In those cases, design for degradation may be infeasible or require trade-offs in safety or effectiveness.</li>
+          <li>Infrastructure dependency: Even degradable materials need the right environment to break down. If disposal systems aren’t in place (e.g. composting facilities), even a biodegradable product might persist. Thus, success often relies on parallel changes in waste management.</li>
+        </ul>
+      </div>
+    </section>
+
+    <section class="card collapsible">
+      <div class="collapsible-header"><h2>Practical Decision Checklist</h2><div class="toggle-btn">+</div></div>
+      <div class="collapsible-content section-body">
+        <p>Use these yes/no questions to guide chemical design:</p>
+        <ul class="checklist" id="waste-checklist">
+          <li>
+            <label>
+              <input type="checkbox">
+              <span class="box" aria-hidden="true"></span>
+              <span class="txt">Chemical structure: Does the molecule contain cleavable bonds (esters, amides, anhydrides, etc.) that will break down in water, light or by enzymes?</span>
+            </label>
+          </li>
+          <li>
+            <label>
+              <input type="checkbox">
+              <span class="box" aria-hidden="true"></span>
+              <span class="txt">Persistent elements: Have you avoided or minimised halogens (Cl, F) and other known persistence-promoting groups in the structure?</span>
+            </label>
+          </li>
+          <li>
+            <label>
+              <input type="checkbox">
+              <span class="box" aria-hidden="true"></span>
+              <span class="txt">Biodegradability: Does the substance achieve ≥60% biodegradation in a 28-day OECD test (or equivalent) under relevant conditions?</span>
+            </label>
+          </li>
+          <li>
+            <label>
+              <input type="checkbox">
+              <span class="box" aria-hidden="true"></span>
+              <span class="txt">Half-life: Are the expected environmental half-lives (water, soil, air) below critical thresholds (e.g. water t½ ≪60 days)?</span>
+            </label>
+          </li>
+          <li>
+            <label>
+              <input type="checkbox">
+              <span class="box" aria-hidden="true"></span>
+              <span class="txt">Degradation products: Have potential breakdown products been identified and assessed as non-toxic/innocuous?</span>
+            </label>
+          </li>
+          <li>
+            <label>
+              <input type="checkbox">
+              <span class="box" aria-hidden="true"></span>
+              <span class="txt">Usage vs disposal: Is the product stable during use (no premature breakdown) but guaranteed to degrade under disposal conditions (e.g. compost, soil, sewage treatment)?</span>
+            </label>
+          </li>
+          <li>
+            <label>
+              <input type="checkbox">
+              <span class="box" aria-hidden="true"></span>
+              <span class="txt">Alternative strategy: Can the product be designed for reuse or recycling instead of disposal, or are degradability and circular reuse both considered?</span>
+            </label>
+          </li>
+          <li>
+            <label>
+              <input type="checkbox">
+              <span class="box" aria-hidden="true"></span>
+              <span class="txt">Testing and validation: Are analytical methods (e.g. CO₂ evolution, mass balance) in place to confirm degradation performance?</span>
+            </label>
+          </li>
+        </ul>
+        <p>Answering “yes” to these questions indicates a design likely aligned with the principle. If “no” appears, consider reformulating or adding features (e.g. enzymatic triggers) to meet the criteria.</p>
+      </div>
+    </section>
+
+    <section class="card collapsible">
+      <div class="collapsible-header"><h2>Conclusion</h2><div class="toggle-btn">+</div></div>
+      <div class="collapsible-content section-body">
+        <p>Design for Degradation transforms end-of-life from a drawback into a design parameter. By embedding degradability, chemists can dramatically cut the persistence of synthetic products. Real-world metrics highlight the impact: for example, transitioning to linear surfactants virtually eliminated detergent foaming in rivers, and enzyme-enhanced plastics can biodegrade up to 98% under mild conditions. These outcomes show how measurable improvements in degradation translate to sustainability.</p>
+        <p>As part of the broader green chemistry agenda, this principle directly supports global goals for waste reduction and environmental health. It complements other strategies like recycling and green synthesis, and is often a regulatory requirement under chemical safety laws. Ultimately, designing chemicals to degrade into innocuous substances not only reduces our footprint, but also helps ensure that innovation in chemistry goes hand-in-hand with the well-being of ecosystems. By applying the strategies and tools outlined above – from molecular design rules to decision checklists – students and scientists can critically assess and improve new chemicals, making degradation-by-design a routine part of chemical practice.</p>
+      </div>
+    </section>
+
+    <section class="card collapsible">
+      <div class="collapsible-header"><h2>References and Further Reading</h2><div class="toggle-btn">+</div></div>
+      <div class="collapsible-content section-body">
+        <ol>
+          <li>P. T. Anastas and J. C. Warner, <em>Green Chemistry: Theory and Practice</em>, Oxford University Press, New York, 1998.</li>
+          <li>R. S. Boethling, E. Sommer and D. DiFiore, <em>Chem. Rev.</em>, 2007, <strong>107</strong>, 2207–2227, DOI: 10.1021/cr050952t.</li>
+          <li>E. F. Fiandra, L. Shaw, M. Starck, C. J. McGurk and C. S. Mahon, <em>Chem. Soc. Rev.</em>, 2023, <strong>52</strong>, 8085–8105, DOI: 10.1039/D3CS00556A.</li>
+          <li>M. L. Bolognesi, B. Martinengo et al., <em>ACS Infect. Dis.</em>, 2024, <strong>10</strong>, 1856–1870, DOI: 10.1021/acsinfecdis.4c00172.</li>
+          <li>OECD, Guidelines for the Testing of Chemicals, No. 301: Ready Biodegradability, OECD Publishing, Paris, 1992. DOI: 10.1787/9789264070349-en.</li>
+          <li>H. C. Erythropel, M. Maric and D. G. Cooper, <em>Chemosphere</em>, 2012, <strong>86</strong>, 759–766, DOI: 10.1016/j.chemosphere.2011.10.054.</li>
+        </ol>
+      </div>
+    </section>
+
+    <footer class="card" style="padding: 12px; text-align: center; font-size: 12px; color: #666;">DodecaGreen — Principle 10: Design for Degradation</footer>
+  </div>
+
+  <script src="script.js"></script>
+</body>
+</html>
